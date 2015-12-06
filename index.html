@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" ng-app="properties">
+ <head>
+  <title>My Property</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+ </head>
+ <body>
+   <div class="container">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Accommodations</a>
+      <a href="#">London</a>
+      <a href="#">My Property</a>
+    </nav>
+  </div>
+    <div class="img-heading-container">
+      <div class="container heading">
+        <h1>My Property, London</h1>
+        <h2>2 Riding House Street, W1W 7FA</h2>
+      </div>
+      <img src="images/room1.jpg" alt="deluxe-room">
+    </div>
+  <section>
+  <div class="container">
+    <div class="eight columns">
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
+      </p>
+    </div>
+    <div class="four columns">
+      <p>
+        ☆ Rated Average of 4.7 by 277 students
+      </p>
+      <p>
+        588 Total Beds
+      </p>
+      <button type="button" name="button">Contact</button>
+    </div>
+  </div>
+  </section>
+  <section>
+    <div class="container" ng-controller="propertiesController">
+      <div class="four columns">
+        <h4>Room Types</h4>
+        <button class="click-to-show-tabs">▼</button>
+        <ul class="tabs" ng-repeat="room in rooms">
+          <li ng-click="selectTab(room)">{{room.title}}</li>
+        </ul>
+      </div>
+      <div class="eight columns" ng-repeat="room in rooms">
+        <div class="room-page" ng-show="isActive(room)">
+          <h4> {{room.title}} </h4>
+          <h5> {{room.subhead}} </h5>
+          <p> {{room.text}} </p>
+          <p><i> {{showFriends(room.friends)}} </i></p>
+          <ul class="facilities_list">
+            <li ng-show="isActive(room)" ng-repeat="facility in room.facilities"> ✔︎{{facility}} </li>
+          <ul>
+        </div>
+      </div>
+    </div>
+  </section>
+ </body>
+ </html>
